@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="DACO: Towards Application-Driven and Comprehensive Data Analysis via Code Generation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DACO</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/icon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/explorer-index.js"></script>
+    <script src="./static/js/question_card.js"></script>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title is-bold">
+                        <span style="vertical-align: middle">DACO</span>
+                    </h1>
+                    <h2 class="subtitle is-4 publication-subtitle">
+                        Towards Application-Driven and Comprehensive <u><b>D</b></u>ata <u><b>A</b></u>nalysis via
+                        <u><b>Co</b></u>de Generation
+                    </h2>
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://shirley-wu.github.io/">Xueqing Wu</a><sup style="color:#6fbf73">1</sup>,</span>
+                        <span class="author-block">
+              <a href="https://ruizheng20.github.io/">Rui Zheng</a><sup style="color:#ffac33">2</sup>,</span>
+                        <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=Q5aezXQAAAAJ">Te-Lin Wu</a><sup
+                                style="color:#6fbf73">1</sup>,</span>
+                        <span class="author-block">
+              <a href="https://www.linkedin.com/in/hanyu-zhou/">Hanyu Zhou</a><sup style="color:#6fbf73">1</sup>,</span>
+                        <span class="author-block">
+              <a href="https://www.linkedin.com/in/mohan-tang-6169a6227/">Tang Mohan</a><sup
+                                style="color:#6fbf73">1</sup>,</span>
+                        <br/>
+                        <span class="author-block">
+              <a href="https://web.cs.ucla.edu/~kwchang/">Kai-Wei Chang</a><sup style="color:#6fbf73">1</sup>,</span>
+                        <span class="author-block">
+              <a href="https://vnpeng.net/">Nanyun Peng</a><sup style="color:#6fbf73">1</sup>,</span>
+                        <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=ZT6jRqwAAAAJ">Haoran Huang</a><sup
+                                style="color:#ed4b82">3</sup></span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup style="color:#6fbf73">1</sup>University of California Los Angeles,</span>
+                        <span class="author-block"><sup style="color:#ffac33">2</sup>Fudan University,</span>
+                        <span class="author-block"><sup style="color:#ed4b82">3</sup>ByteDance AI Lab</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.02528.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+                            <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.02528"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                <a href="https://github.com/shirley-wu/daco"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+                            <span class="link-block">
+                <a href="https://github.com/shirley-wu/daco/tree/main/data"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:15px">📁</p>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="content has-text-centered">
+            <img src="static/images/task_overview_4.jpg" width="100%"/>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column has-text-centered">
+                <div class="content has-text-justified">
+                    <p>
+                        Data analysis is a crucial analytical process to uncover valuable insights from the given data,
+                        requiring a chain of mathematical and logical reasoning and interacting with the data.
+                    </p>
+                    <p>
+                        We construct the <b>DACO dataset</b> for this task, containing (1) 440 databases (of tabular
+                        data) collected from real-world scenarios, (2) ~2k answer annotations automatically generated by
+                        GPT-4 that can serve as <u>weak supervision for model fine-tuning</u>, and (3) a high-quality
+                        human
+                        refined subset that serves as our main <u>evaluation benchmark</u>. For
+                        generating the automatic annotations, we leverage the <b>code generation</b> capabilities of
+                        LLMs and
+                        propose a multi-turn prompting technique to automate data analysis for each query. Experiments
+                        show that equipping models with code generation improves data analysis performance for both
+                        zero-shot large language models (LLM) and fine-tuned models.
+                    </p>
+                    <p>
+                        We further propose the <b>DACO-RL algorithm</b> to align models with human preference. We use
+                        reinforcement learning to encourage generating analysis perceived by human as <u>helpful</u>,
+                        and
+                        design a set of dense rewards to propagate the sparse human preference reward to intermediate
+                        code generation steps. DACO-RL is rated by human annotators to produce more helpful answers
+                        than supervised fine-tuning (SFT) baseline in <b>57.72%</b> cases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DATASET SECTION -->
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+        <h1 class="title is-1 section-title">
+            <span style="vertical-align: middle">DACO Task and Dataset</span>
+        </h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content has-text-justified">
+                    <p>
+                        In our proposed task, the input is <b>a database</b> of tabular data and <b>a query</b>, and the
+                        output answer is formatted as <b>two lists of findings and suggestions</b> respectively.
+                    </p>
+                    <p>
+                        We construct our DACO dataset through four stages: (1) database collection, (2) query
+                        collection, (3) automatic annotation collection, and (4) human refinement. The DACO dataset
+                        contains <b>440 databases and 1,942 associated user queries</b>, which can be used for both
+                        model fine-tuning and evaluation. To provide a refined benchmarking resource, we curate a
+                        <b>high-quality test set of 100 samples</b> through comprehensive human annotations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column" style="margin-right: -20rem;">
+                <div class="content has-text-centered">
+                    <img src="static/images/dataset.jpg" style="max-width: 40%;"/>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content has-text-centered">
+                    <img src="static/images/statistics.jpg" style="max-width: 50%;"/>
+                    <p>
+                        <b>Statistics of DACO dataset.</b>
+                        <br/>Train, Dev and Test<sup>A</sup> sets are automatically generated with GPT-4.
+                        <br/>Test<sup>H</sup> is the high-quality human refined subset.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="columns is-centered">
+            <div class="column" style="margin-right: -20rem;">
+                <div class="content has-text-centered">
+                    <img src="static/images/database_dist.png" style="max-width: 45%;"/>
+                    <p>
+                        <br/>
+                        <b>Domain distribution of DACO databases.</b>
+                        <br/>The 10 topics cover various domains such as business and sports.
+                        <br/>This demonstrates the <b>diverse domain coverage</b> of DACO.
+                    </p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content has-text-centered">
+                    <img src="static/images/question_dist.png" style="max-width: 42%;"/>
+                    <p>
+                        <br/>
+                        <b>Demonstration of user query diversity.</b>
+                        <br/>Top 15 verbs and their top 3 direct noun objectives.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <br/>
+                <h2 class="title is-3">Evaluation</h2>
+                <div class="content has-text-justified">
+                    <p> We use <b>helpfulness</b> as the main metric to evaluate the quality of generated data analysis.
+                    </p>
+                    <p>Motivated by
+                        <a href="https://www.stata.com/bookstore/workflow-data-analysis-stata/">literature in the data
+                            analysis field</a>, we define helpfulness as:
+                    <ol>
+                        <li>Relevance to the query,</li>
+                        <li>Effective and insightful data interpretation, and</li>
+                        <li>Diversity in terms of analysis perspectives.</li>
+                    </ol>
+                    <p> We evaluate helpfulness through <b>pairwise comparison</b>: given two analyses generated by two
+                        different systems, the annotator (either human or ChatGPT) selects the more helpful one based on
+                        our criteria. The winning rate is reported as helpfulness score.
+                    </p>
+                    <p>To obtain a comparable set of numbers for all models, we report the winning rate of each model
+                        against Test<sup>A</sup> and Test<sup>H</sup> annotations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+        <h1 class="title is-1 section-title">
+            <span style="vertical-align: middle">DACO-RL</span>
+        </h1>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content has-text-justified">
+                    <p>
+                        The <b>supervised fine-tuning (SFT) model</b>, trained using GPT-4-generated annotations,
+                        iteratively generates and executes Python code to perform data analysis, as on the right side of
+                        the image below.
+                    </p>
+                </div>
+                <div class="box m-5">
+                    <div class="content has-text-centered">
+                        <img src="static/images/framework 2.jpg" width="100%"/>
+                    </div>
+                    <p>
+                        <b>Left:</b> DACO-RL algorithm.&nbsp&nbsp<b>Right:</b> code generation pipeline.
+                    </p>
+                </div>
+                <div class="content has-text-justified">
+                    <p>
+                        We use
+                        <a href="https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback">RLHF</a>
+                        to further align the models with human preference.
+                    </p>
+                    <p>
+                        We design three reward models for our <b>DACO-RL</b> algorithm, as on the left side of the image
+                        above:
+                    </p>
+                    <ul>
+                        <li><b>Answer RM</b>: Answer RM measures the <b>helpfulness of answer</b>, which is our end
+                            optimization goal. It is trained from pair-wise comparison data of final answer helpfulness.
+                        </li>
+                        <li><b>Contribution RM</b>: Contribution RM is a <b>dense reward</b> that evaluates the
+                            <b>helpfulness of each coding step</b>. To avoid the labor-intensive annotation of all
+                            coding steps, we heuristically define helpfulness as <u>how much an intermediate step
+                                contributes to the final answer</u>, measured by the similarity between final answer and
+                            code execution outputs.
+                        </li>
+                        <li><b>Regularization RM</b>: The heuristically defined contribution RM may not necessarily
+                            perfectly align with the true helpfulness, and thus may leads to
+                            <a href="https://arxiv.org/pdf/2402.17644.pdf">reward hacking</a>.
+                            Regularization RM assigns lower scores to typical reward hacking behaviors
+                            (exhibited by a policy that hacks contribution RM) and thus <b>regularizes reward
+                                hacking</b>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+        <h1 class="title is-1 section-title">
+            <span style="vertical-align: middle">Results</span>
+        </h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content has-text-justified">
+                    <p>
+                        We experiment with the following models:
+                    </p>
+                    <ul>
+                        <li><b>Prompt-based zero-shot LLM</b> including ChatGPT and GPT-4, with or w/o code generation.
+                        </li>
+                        <li><b>Fine-tuned model</b>, including:
+                            <ul>
+                                <li>SFT model trained from GPT-4-generated annotations</li>
+                                <li>A baseline counterpart that does not use code generation</li>
+                                <li>DACO-RL model</li>
+                            </ul>
+                        <li><b>Models pre-trained on tabular data</b>, including:
+                            <ul>
+                                <li><a href="https://arxiv.org/pdf/2004.02349.pdf">TAPAS</a> is a BERT-style model
+                                    pre-trained to select relevant information from a table
+                                    based on user query. We first use TAPAS to select relevant
+                                    information and then use ChatGPT to interpret the selected information.
+                                </li>
+                                <li><a href="https://arxiv.org/pdf/2107.07653.pdf">TAPEX</a>
+                                    is a pre-trained encoder-to-decoder model. We fine-tune TAPEX with
+                                    GPT-4-generated annotations.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box m-5">
+                    <div class="content has-text-centered">
+                        <img src="static/images/results.jpg" width="100%">
+                        <p> Performance of all models on DACO dataset. We report three metrics: helpfulness, entailment,
+                            and BLEU.
+                            <br/>We report numbers on both Test<sup>A</sup> and Test<sup>H</sup> test sets.
+                        </p>
+                    </div>
+                </div>
+                <div class="content has-text-justified">
+                    We have the following observations:
+                    <ul>
+                        <li><b>Code generation significantly helps data analysis</b>, especially for zero-shot LLMs.
+                        </li>
+                        <li>Our SFT model learns reasonable data analysis capabilities.</li>
+                        <li><b>DACO-RL significantly improves over SFT</b>, especially on helpfulness and entailment
+                            metrics.
+                        </li>
+                        <li>Qualatitave analysis shows that contribution RM favors API calls that extracts important
+                            information from tabular data (e.g. nlargest, mean, sort_values) but is also vulnerable to
+                            reward hacking.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+@misc{wu2024daco,
+      title={DACO: Towards Application-Driven and Comprehensive Data Analysis via Code Generation},
+      author={Xueqing Wu and Rui Zheng and Jingzhen Sha and Te-Lin Wu and Hanyu Zhou and Mohan Tang and Kai-Wei Chang and Nanyun Peng and Haoran Huang},
+      year={2024},
+      eprint={2403.02528},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+    </code></pre>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a
+                            href="https://mathvista.github.io/">MathVista</a>, licensed under a
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                            Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
