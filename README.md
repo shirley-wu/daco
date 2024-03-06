@@ -1,6 +1,6 @@
 <h2 align="center">DACO: Towards Application-Driven and Comprehensive Data Analysis via Code Generation</h2>
 
-This is the repo for our arXiv paper: [paper](https://arxiv.org/abs/2403.02528), [website](https://shirley-wu.github.io/daco)
+This is the repo for our arXiv paper: [paper](https://arxiv.org/abs/2403.02528), [website](https://shirley-wu.github.io/daco/index.html)
 
 ![Overview](docs/static/images/task_overview_4.jpg)
 
