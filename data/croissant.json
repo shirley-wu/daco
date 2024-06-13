@@ -1,0 +1,138 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "daco",
+  "description": "DACO dataset aims to address the data analysis task, which requires a chain of mathematical and logical reasoning and interacting with the data. Our dataset contains:\n1. 440 databases (of tabular data) collected from real-world scenarios,\n2. ~2k input queries and answer annotations split into train, validation and test sets, and\n3. A human refined testset that serves as our main evaluation benchmark, denoted as test_h split.",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "@misc{wu2024daco,\n      title={DACO: Towards Application-Driven and Comprehensive Data Analysis via Code Generation}, \n      author={Xueqing Wu and Rui Zheng and Jingzhen Sha and Te-Lin Wu and Hanyu Zhou and Mohan Tang and Kai-Wei Chang and Nanyun Peng and Haoran Huang},\n      year={2024},\n      eprint={2403.02528},\n      archivePrefix={arXiv},\n      primaryClass={cs.CL}\n}",
+  "url": "https://shirley-wu.github.io/daco/index.html",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "DACO repository on GitHub.",
+      "contentUrl": "https://github.com/shirley-wu/daco",
+      "encodingFormat": "git+https",
+      "sha256": "main"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "json-files",
+      "name": "json-files",
+      "description": "JSON files are hosted on the GitHub repository",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/json",
+      "includes": "data/*.json"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "databases",
+      "name": "databases",
+      "description": "Database files stored in Google drive",
+      "contentUrl": "https://drive.google.com/file/d/1dWpPCzXT4Sy2ih61dzl95KF_Suw64OdN/view",
+      "encodingFormat": "https",
+      "sha256": "188b53e97d48bcea9bcc66831b8583773300104ec23814d788630c2faeab72ca"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "json",
+      "name": "json",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "json/table_id",
+          "name": "table_id",
+          "description": "ID for database",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "json-files"
+            },
+            "extract": {
+              "column": "table_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "json/data_id",
+          "name": "data_id",
+          "description": "Unique ID for each record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "json-files"
+            },
+            "extract": {
+              "column": "table_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "json/messages",
+          "name": "messages",
+          "description": "Messages including code and final annotation",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "json-files"
+            },
+            "extract": {
+              "column": "messages"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
