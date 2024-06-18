@@ -93,9 +93,20 @@ An example data is as follows:
 }
 ```
 
-You don't need the database files for SFT. However, for inference and DACO-RL (that is, for all scenarios that requires executing code), you will need to load the database. 
+You don't need the database files for SFT. However, for inference and DACO-RL (that is, for all scenarios that requires executing code), you will need to load the database.
 
-## Code
+## Evaluation
+
+Evaluation scripts are under [evaluation/](evaluation/). You need to setup evaluation environments by installing the required packages in [evaluation/requirements.txt](evaluation/requirements.txt). An example output is in [evaluation/example_out.sft.json](evaluation/example_out.sft.json). To obtain BLEU and Entailment scores, you can run:
+```bash
+python evaluation/eval_answer.py evaluation/example_out.sft.json data/test_h.json
+```
+To obtain ChatGPT helpfulness scores, you can run:
+```bash
+python evaluation/eval_helpfulness.py evaluation/example_out.sft.json data/test_h.json --api_key YOUR_API_KEY
+```
+
+## Models
 
 In progress: still wrapping up our code 😟 will be released under [code/](code/)
 
