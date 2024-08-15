@@ -3,22 +3,37 @@ import json
 import string
 import time
 
+import anthropic
 import openai
 import tqdm
 
 
-def openai_request(query, model):
-    params = {"messages": [{'role': 'user', 'content': query}, ], "max_tokens": 400, "model": model,
-              "temperature": 1.0, }
+def make_request(query):
+    params = {"max_tokens": 400, "model": args.model, "temperature": 1.0, }
+
+    if args.model_type == 'openai':
+        client_func = openai.OpenAI(api_key=args.api_key).chat.completions.create
+        messages = [{'role': 'user', 'content': query}, ]
+    elif args.model_type == 'vllm':
+        client_func = openai.OpenAI(base_url="http://localhost:8000/v1", api_key=args.api_key).chat.completions.create
+        messages = [{'role': 'user', 'content': query}, ]
+    else:
+        assert args.model_type == 'anthropic'  # e.g. claude-3-5-sonnet-20240620
+        client_func = anthropic.Anthropic(api_key=args.api_key).messages.create
+        messages = [{"role": "user", "content": [{"type": "text", "text": query}]}, ]
 
     try:
-        completion = openai.ChatCompletion.create(**params)
+        completion = client_func(messages=messages, **params)
     except Exception as e:
         print("Error")
         print(e)
         time.sleep(2)
-        completion = openai.ChatCompletion.create(**params)
-    return completion.choices[0].message['content']
+        completion = client_func(messages=messages, **params)
+
+    if args.model_type in ['openai', 'vllm', ]:
+        return completion.choices[0].message.content
+    else:
+        return completion.content[0].text
 
 
 QUERY_PROMPT = """{INTENTION_DESC}
@@ -55,27 +70,18 @@ def parse_response(text):
         return None
 
 
-def compare_final_report(model, gen1, gen2):
+def compare_final_report(gen1, gen2):
     intention_desc = gen1['messages'][0]['content'].splitlines()[0][1:].strip()
     report_1 = gen1['messages'][-1]['content'].strip()
     report_2 = gen2['messages'][-1]['content'].strip()
 
     query = QUERY_PROMPT.format(INTENTION_DESC=intention_desc, REPORT_1=report_1, REPORT_2=report_2)
-    response = openai_request(query, model)
+    response = make_request(query)
 
     return parse_response(response)
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('pred')
-    parser.add_argument('comparison')
-    parser.add_argument('--model', default='gpt-3.5-turbo-0613')
-    parser.add_argument('--api_key', required=True)
-    args = parser.parse_args()
-
-    openai.api_key = args.api_key
-
+def main(args):
     with open(args.comparison) as f:
         comparison = json.load(f)
 
@@ -92,10 +98,10 @@ def main():
     counter = {0: 0, 1: 0, None: 0, }  # 0: first win; 1: second win; None: invalid answer
     for i in tqdm.trange(len(comparison)):
         if is_valid(pred[i]) and is_valid(comparison[i]):
-            ans = compare_final_report(args.model, pred[i], comparison[i])
+            ans = compare_final_report(pred[i], comparison[i])
             counter[ans] += 1
 
-            ans, failed = compare_final_report(args.model, pred[i], comparison[i])
+            ans = compare_final_report(comparison[i], pred[i])
             if ans is not None:
                 ans = 1 - ans
             counter[ans] += 1
@@ -106,4 +112,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('pred')
+    parser.add_argument('comparison')
+    parser.add_argument('--model_type', default='openai')
+    parser.add_argument('--model', default='gpt-4o-mini-2024-07-18')
+    # change default model from gpt-3.5-turbo-0613 to gpt-4o-mini-2024-07-18, since gpt-3.5 is deprecated
+    parser.add_argument('--api_key', default='')
+    args = parser.parse_args()
+    main(args)

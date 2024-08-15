@@ -1,4 +1,5 @@
 numpy==1.22
 sentence_transformers==3.0.1
 nltk==3.8.1
-openai==0.28
+openai==1.40
+anthropic==0.33.1
