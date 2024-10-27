@@ -106,10 +106,6 @@ To obtain ChatGPT helpfulness scores, you can run:
 python evaluation/eval_helpfulness.py evaluation/example_out.sft.json data/test_h.json --api_key YOUR_API_KEY
 ```
 
-## Models
-
-In progress: still wrapping up our code 😟 will be released under [code/](code/)
-
 ## Citation
 Please cite our paper if this repository inspires your work!
 
