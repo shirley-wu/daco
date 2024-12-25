@@ -106,6 +106,10 @@ To obtain ChatGPT helpfulness scores, you can run:
 python evaluation/eval_helpfulness.py evaluation/example_out.sft.json data/test_h.json --api_key YOUR_API_KEY
 ```
 
+## Code
+
+The code generation pipeline is implemented under [code/](code/). In this paper, the more complicated pipeline `code_generation_with_reflection.py` is only used for constructing weak supervision data for training set, and the experiments use the simplified version `code_generation_wo_reflection.py`.
+
 ## Citation
 Please cite our paper if this repository inspires your work!
 
